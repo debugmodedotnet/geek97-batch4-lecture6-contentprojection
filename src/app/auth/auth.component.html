@@ -1,0 +1,28 @@
+<div>
+    <input type="text" />
+    <button *ngIf="showMessage" #clbtn>call me</button>
+    <form (ngSubmit)="login(form.value)" #form="ngForm">
+        
+    
+     
+         <ng-content select=".header"></ng-content>
+        <label>
+            Email address
+            <input type="email" name="email" ngModel>
+        </label>
+        <label>
+            Password
+            <input type="password" name="password" ngModel>
+        </label>
+       <ng-content select=".actionbutton"></ng-content>
+       <ng-content select="app-auth-remember"></ng-content> 
+       <!-- <p *ngIf="showMessage == true" >You will be logged in for 10 days</p> -->
+       <!-- <app-auth-message *ngIf="showMessage == true"></app-auth-message> -->
+       <app-auth-message [style.display]="(showMessage ? 'inherit':'none')"></app-auth-message>
+    
+    </form>
+
+</div>
+
+<!-- // content child to read data and properties and evenr of child compoennt in partent component class 
+// view child -->
